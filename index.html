@@ -21,18 +21,48 @@
     <title>Frontend Mentor | Fylo data storage component</title>
   </head>
   <body>
-    <div class="fylo">
-      <svg>
-        <use xlink:href="./images/logo.svg"></use>
-      </svg>
-    </div>
-    You’ve used 815 GB of your storage 185 GB Left 0 GB 1000 GB
+    <main class="main-container">
+      <div class="bg-image">
+        &nbsp;
+        <img src="./images/bg-desktop.png" alt="background image" />
+      </div>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Victor Okonkwo Chidike</a>.
-    </div>
+      <section class="fylo">
+        <!-- fylo logo -->
+        <svg class="logo">
+          <use xlink:href="./images/symbol-defs.svg#icon-logo"></use>
+        </svg>
+        <div class="u-margin-bottom-small">
+          <!-- document icon -->
+          <svg class="icons u-margin-right-small">
+            <use xlink:href="./images/symbol-defs.svg#icon-icon-document"></use>
+          </svg>
+          <!-- folder icon -->
+          <svg class="icons u-margin-right-small">
+            <use xlink:href="./images/symbol-defs.svg#icon-icon-folder"></use>
+          </svg>
+          <!-- upload icon -->
+          <svg class="icons u-margin-right-small">
+            <use xlink:href="./images/symbol-defs.svg#icon-icon-upload"></use>
+          </svg>
+        </div>
+      </section>
+
+      <section class="notification">
+        <p>You’ve used 815 GB of your storage</p>
+        <div class="notification__meter">
+          <span class="notification__meter">&nbsp;</span>
+        </div>
+        <span>185 GB Left</span>
+        <span>0 GB 1000 GB</span>
+      </section>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Victor Okonkwo Chidike</a>.
+      </div>
+    </main>
   </body>
 </html>

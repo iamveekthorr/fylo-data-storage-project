@@ -1,3 +1,19 @@
+// variables
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+$gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+
+// typography
+$font-size: 14px;
+
+// utility
+.u-margin-right-small {
+  margin-right: 1rem;
+}
+.u-margin-bottom-small {
+  margin-bottom: 1rem;
+}
 *,
 *::before,
 *::after {
@@ -7,7 +23,84 @@
   box-sizing: inherit;
 }
 
+body {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.6rem;
+  background-color: $very-dark-blue;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 100vh;
+  overflow: hidden;
+
+  position: relative;
+
+  color: white;
+}
+
 html {
-  font-size: 1.6rem;
+  font-size: 62.5%;
   box-sizing: border-box;
+}
+.bg-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  z-index: -3;
+}
+
+.icons {
+  background-color: $very-dark-blue;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5px;
+  padding: 1rem;
+
+  justify-self: center;
+}
+
+.fylo {
+  background-color: $dark-blue;
+  width: 25%;
+  border-radius: 10px 100px 10px 10px;
+  padding: 0.75rem 3rem;
+
+  position: absolute;
+  top: 15rem;
+  left: 30rem;
+}
+
+.logo {
+  width: 15rem;
+  height: 15rem;
+  box-sizing: content-box;
+}
+
+.notification {
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: $dark-blue;
+  position: absolute;
+  top: 20rem;
+  right: 25rem;
+  padding: 2rem;
+
+  width: 30%;
+
+  &__meter {
+    display: block;
+    background-color: $very-dark-blue;
+    border-radius: 5px;
+
+    &::after {
+      background-image: linear-gradient($gradient);
+      width: 70%;
+    }
+    // &--gradient {
+    //   background-image: linear-gradient($gradient);
+    //   width: 70%;
+    //   position: relative;
+    //   z-index: 400000;
+    // }
+  }
 }
