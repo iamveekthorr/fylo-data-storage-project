@@ -8,6 +8,30 @@ $pale-blue: hsl(243, 100%, 93%);
 // typography
 $font-size: 14px;
 
+// screen sizes
+$bp-laptop-md: 75em; //1200px
+$bp-tab: 56.25em; //900px
+$bp-phone: 37.5em; //600px/16px(base font size = 16px)
+
+// mixins
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: $bp-phone) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: $bp-tab) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (min-width: $bp-laptop-md) {
+      @content;
+    }
+  }
+}
+
 // utility
 .u-margin-right-small {
   margin-right: 1rem;
@@ -28,9 +52,8 @@ body {
   font-family: "Raleway", sans-serif;
   line-height: 1.6rem;
   background-color: $very-dark-blue;
-  background-repeat: no-repeat;
-  background-position: bottom;
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
 
   position: relative;
@@ -41,7 +64,34 @@ body {
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+
+  @include respond(phone) {
+    font-size: 50%;
+  }
+  @include respond(tab-port) {
+    font-size: 60%;
+  }
+  @include respond(big-desktop) {
+    font-size: 100%;
+  }
 }
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 3%;
+  width: 100%;
+
+  @include respond(phone) {
+    display: block;
+    margin: 0 auto;
+    // vertical-align: middle;
+  }
+}
+
 .bg-image {
   position: absolute;
   bottom: 0;
@@ -56,19 +106,21 @@ html {
   width: 5rem;
   border-radius: 5px;
   padding: 1rem;
-
-  justify-self: center;
 }
 
 .fylo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 30%;
   background-color: $dark-blue;
-  width: 25%;
   border-radius: 10px 100px 10px 10px;
   padding: 0.75rem 3rem;
+  margin-right: 2rem;
 
-  position: absolute;
-  top: 15rem;
-  left: 30rem;
+  @include respond(phone) {
+    flex-basis: 15%;
+  }
 }
 
 .logo {
@@ -78,34 +130,54 @@ html {
 }
 
 .notification {
+  height: 10rem;
+  // align-self: baseline;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  flex-basis: 30%;
+  flex-wrap: nowrap;
   font-size: 1rem;
+  margin-top: 3rem;
+  font-weight: 400;
   border-radius: 10px;
   background-color: $dark-blue;
-  position: absolute;
-  top: 20rem;
-  right: 25rem;
-  padding: 2rem;
+  position: relative;
 
-  width: 30%;
+  @include respond(phone) {
+    display: block;
+    width: 95%;
+  }
+
+  P {
+    margin: 2rem 0;
+  }
 
   &__meter {
-    display: flex;
-    align-items: center;
+    display: block;
     background-color: $very-dark-blue;
     border-radius: 1000000000000000px;
-    position: relative;
+    width: 100%;
+
+    top: 1rem;
 
     padding: 3px;
     height: 1.5rem;
 
+    bottom: -2rem;
+
     &::before {
+      /***gradient for the meter***/
       content: "";
       height: 1rem;
-      width: 81.5%;
+      width: 75%;
+      position: absolute;
       border-radius: 0.8rem;
       background-image: linear-gradient($gradient);
     }
     &::after {
+      /***circular handle dor thr meter***/
       content: "";
       height: 1rem;
       width: 1rem;
@@ -123,21 +195,57 @@ html {
 }
 
 .message {
-  position: absolute;
-  top: -8rem;
-  right: 3rem;
+  position: relative;
+  bottom: 6rem;
+  right: 20rem;
   background-color: white;
   color: $pale-blue;
-  padding: 5rem 4rem;
+  padding: 2rem 3rem;
   font-weight: 700;
   border-radius: 10px;
-  border-bottom-right-radius: 0px;
+
+  @include respond(phone) {
+    z-index: 7;
+    position: absolute;
+    bottom: -3rem;
+    right: 12rem;
+  }
+
+  // **********************TESTING**********************//
   // clip-path: polygon(86% 27%, 11% 27%, 11% 74%, 73% 74%, 87% 87%);
   // -webkit-clip-path: polygon(86% 27%, 11% 27%, 11% 74%, 73% 74%, 87% 87%);
-  //   &::after {
-  //   }
-  span {
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0rem;
+    right: 0rem;
+    bottom: -2rem;
+    border-right: 3rem solid white;
+    border-bottom: 3rem solid transparent;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+  span:not(:last-of-type) {
     font-size: 4rem;
     color: black;
+  }
+  span:last-of-type {
+    text-transform: uppercase;
+  }
+}
+
+.attribution {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  a {
+    text-decoration: none;
+    color: white;
   }
 }

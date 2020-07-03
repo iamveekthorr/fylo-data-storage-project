@@ -16,9 +16,8 @@ body {
   font-family: "Raleway", sans-serif;
   line-height: 1.6rem;
   background-color: #0c122c;
-  background-repeat: no-repeat;
-  background-position: bottom;
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
   position: relative;
   color: white; }
@@ -26,6 +25,25 @@ body {
 html {
   font-size: 62.5%;
   box-sizing: border-box; }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 60%; } }
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 3%;
+  width: 100%; }
+  @media only screen and (max-width: 37.5em) {
+    .main-container {
+      display: block;
+      margin: 0 auto; } }
 
 .bg-image {
   position: absolute;
@@ -38,17 +56,20 @@ html {
   height: 5rem;
   width: 5rem;
   border-radius: 5px;
-  padding: 1rem;
-  justify-self: center; }
+  padding: 1rem; }
 
 .fylo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 30%;
   background-color: #1d2c67;
-  width: 25%;
   border-radius: 10px 100px 10px 10px;
   padding: 0.75rem 3rem;
-  position: absolute;
-  top: 15rem;
-  left: 30rem; }
+  margin-right: 2rem; }
+  @media only screen and (max-width: 37.5em) {
+    .fylo {
+      flex-basis: 15%; } }
 
 .logo {
   width: 15rem;
@@ -56,29 +77,44 @@ html {
   box-sizing: content-box; }
 
 .notification {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  flex-basis: 30%;
+  flex-wrap: nowrap;
   font-size: 1rem;
+  margin-top: 3rem;
+  font-weight: 400;
   border-radius: 10px;
   background-color: #1d2c67;
-  position: absolute;
-  top: 20rem;
-  right: 25rem;
-  padding: 2rem;
-  width: 30%; }
+  position: relative; }
+  @media only screen and (max-width: 37.5em) {
+    .notification {
+      display: block;
+      width: 95%; } }
+  .notification P {
+    margin: 2rem 0; }
   .notification__meter {
-    display: flex;
-    align-items: center;
+    display: block;
     background-color: #0c122c;
     border-radius: 1000000000000000px;
-    position: relative;
+    width: 100%;
+    top: 1rem;
     padding: 3px;
-    height: 1.5rem; }
+    height: 1.5rem;
+    bottom: -2rem; }
     .notification__meter::before {
+      /***gradient for the meter***/
       content: "";
       height: 1rem;
-      width: 81.5%;
+      width: 75%;
+      position: absolute;
       border-radius: 0.8rem;
       background-image: linear-gradient(#ffa399, #ff4d97); }
     .notification__meter::after {
+      /***circular handle dor thr meter***/
       content: "";
       height: 1rem;
       width: 1rem;
@@ -92,15 +128,44 @@ html {
   justify-content: space-between; }
 
 .message {
-  position: absolute;
-  top: -8rem;
-  right: 3rem;
+  position: relative;
+  bottom: 6rem;
+  right: 20rem;
   background-color: white;
   color: #dddbff;
-  padding: 5rem 4rem;
+  padding: 2rem 3rem;
   font-weight: 700;
-  border-radius: 10px;
-  border-bottom-right-radius: 0px; }
-  .message span {
+  border-radius: 10px; }
+  @media only screen and (max-width: 37.5em) {
+    .message {
+      z-index: 7;
+      position: absolute;
+      bottom: -3rem;
+      right: 12rem; } }
+  .message::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0rem;
+    right: 0rem;
+    bottom: -2rem;
+    border-right: 3rem solid white;
+    border-bottom: 3rem solid transparent; }
+    @media only screen and (max-width: 37.5em) {
+      .message::after {
+        display: none; } }
+  .message span:not(:last-of-type) {
     font-size: 4rem;
     color: black; }
+  .message span:last-of-type {
+    text-transform: uppercase; }
+
+.attribution {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem; }
+  .attribution a {
+    text-decoration: none;
+    color: white; }

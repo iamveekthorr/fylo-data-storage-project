@@ -21,18 +21,23 @@
     <title>Frontend Mentor | Fylo data storage component</title>
   </head>
   <body>
+    <div class="bg-image">
+      &nbsp;
+      <picture>
+        <source media="(max-width: 37.5em)" srcset="/images/bg-mobile.png" />
+        <img
+          srcset="/images/bg-desktop.png 1x, /images/bg-mobile.png 2x"
+          alt="background image"
+        />
+      </picture>
+    </div>
     <main class="main-container">
-      <div class="bg-image">
-        &nbsp;
-        <img src="./images/bg-desktop.png" alt="background image" />
-      </div>
-
       <section class="fylo">
         <!-- fylo logo -->
         <svg class="logo">
           <use xlink:href="./images/symbol-defs.svg#icon-logo"></use>
         </svg>
-        <div class="u-margin-bottom-small">
+        <div>
           <!-- document icon -->
           <svg class="icons u-margin-right-small">
             <use xlink:href="./images/symbol-defs.svg#icon-icon-document"></use>
@@ -49,23 +54,28 @@
       </section>
 
       <section class="notification">
-        <p>You’ve used 815 GB of your storage</p>
+        <div>You’ve used 815 GB of your storage</div>
         <div class="notification__meter">
-          <div class="notification__meter--gradient">&nbsp;</div>
+          <div class="notification__meter--gradient"></div>
         </div>
-        <span class="message"><span>185</span> GB Left</span>
         <div class="zeroGb">
           <div>0 GB</div>
           <div>1000 GB</div>
         </div>
       </section>
-
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Victor Okonkwo Chidike</a>.
-      </div>
+      <span class="message">
+        <span>185</span>
+        <span>GB Left</span>
+      </span>
     </main>
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/iamveekthorr" target="_blank"
+        >Victor Okonkwo Chidike</a
+      >.
+    </div> -->
   </body>
 </html>
