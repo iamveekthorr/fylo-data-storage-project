@@ -2,7 +2,8 @@
 $grayish-blue: hsl(229, 7%, 55%);
 $dark-blue: hsl(228, 56%, 26%);
 $very-dark-blue: hsl(229, 57%, 11%);
-$gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+$gradient: hsl(6, 100%, 80%), hsl(335, 100%, 65%);
+$pale-blue: hsl(243, 100%, 93%);
 
 // typography
 $font-size: 14px;
@@ -88,19 +89,55 @@ html {
   width: 30%;
 
   &__meter {
-    display: block;
+    display: flex;
+    align-items: center;
     background-color: $very-dark-blue;
-    border-radius: 5px;
+    border-radius: 1000000000000000px;
+    position: relative;
 
-    &::after {
+    padding: 3px;
+    height: 1.5rem;
+
+    &::before {
+      content: "";
+      height: 1rem;
+      width: 81.5%;
+      border-radius: 0.8rem;
       background-image: linear-gradient($gradient);
-      width: 70%;
     }
-    // &--gradient {
-    //   background-image: linear-gradient($gradient);
-    //   width: 70%;
-    //   position: relative;
-    //   z-index: 400000;
-    // }
+    &::after {
+      content: "";
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      background-color: $pale-blue;
+      position: absolute;
+      right: 7rem;
+    }
+  }
+}
+
+.zeroGb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message {
+  position: absolute;
+  top: -8rem;
+  right: 3rem;
+  background-color: white;
+  color: $pale-blue;
+  padding: 5rem 4rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  // clip-path: polygon(86% 27%, 11% 27%, 11% 74%, 73% 74%, 87% 87%);
+  // -webkit-clip-path: polygon(86% 27%, 11% 27%, 11% 74%, 73% 74%, 87% 87%);
+  //   &::after {
+  //   }
+  span {
+    font-size: 4rem;
+    color: black;
   }
 }

@@ -65,9 +65,42 @@ html {
   padding: 2rem;
   width: 30%; }
   .notification__meter {
-    display: block;
+    display: flex;
+    align-items: center;
     background-color: #0c122c;
-    border-radius: 5px; }
+    border-radius: 1000000000000000px;
+    position: relative;
+    padding: 3px;
+    height: 1.5rem; }
+    .notification__meter::before {
+      content: "";
+      height: 1rem;
+      width: 81.5%;
+      border-radius: 0.8rem;
+      background-image: linear-gradient(#ffa399, #ff4d97); }
     .notification__meter::after {
-      background-image: linear-gradient(#ffa399 to #ff4d97);
-      width: 70%; }
+      content: "";
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      background-color: #dddbff;
+      position: absolute;
+      right: 7rem; }
+
+.zeroGb {
+  display: flex;
+  justify-content: space-between; }
+
+.message {
+  position: absolute;
+  top: -8rem;
+  right: 3rem;
+  background-color: white;
+  color: #dddbff;
+  padding: 5rem 4rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border-bottom-right-radius: 0px; }
+  .message span {
+    font-size: 4rem;
+    color: black; }
